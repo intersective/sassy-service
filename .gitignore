@@ -57,3 +57,12 @@ typings/
 # dotenv environment variables file
 .env
 
+# empty folders
+static/*
+!static/.empty
+
+source/*
+!source/.empty
+
+build/*
+!build/.empty
