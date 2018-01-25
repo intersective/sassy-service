@@ -3,9 +3,10 @@ box: node
 build:
     steps:
         - npm-install
-        - tcnksm/zip:
-            input: $WERCKER_SOURCE_DIR
-            output: $WERCKER_SOURCE_DIR
+        - script:
+            name: zip directory
+            code: |
+            zip -r sassy-front-end.zip .
 
 deploy:
     steps:
@@ -14,4 +15,4 @@ deploy:
             secret_key: $AWS_SECRET_KEY
             function_name: sassy-front-end
             region: $AWS_REGION
-            filepath: $WERCKER_SOURCE_DIR/sassy-service.zip
+            filepath: $WERCKER_SOURCE_DIR/sassy-front-end.zip
