@@ -3,18 +3,15 @@ box: node
 build:
     steps:
         - npm-install
-
-init:
-    steps:
-        - script:
-            name: initialisation
-            code: |
-                npm run generate-proxy
-                npm run deploy
+        - tcnksm/zip:
+            input: $WERCKER_SOURCE_DIR
+            output: $WERCKER_SOURCE_DIR
 
 deploy:
     steps:
-        - script:
-            name: update 
-            code: |
-                npm run update
+        - arjen/lambda:
+            access_key: $AWS_ACCESS_KEY
+            secret_key: $AWS_SECRET_KEY
+            function_name: sassy-front-end
+            region: $AWS_REGION
+            filepath: $WERCKER_SOURCE_DIR/sassy-service.zip
