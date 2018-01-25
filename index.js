@@ -40,6 +40,10 @@ router.get('/', function(req, res) {
 
 app.use('/', router);
 
-const server = http.createServer(app).listen(port, () => {
-  console.log('Server listening on port', port);
-});
+// use API Gateway to handle the web requests instead of TCP port
+module.exports = app;
+
+// const server = http.createServer(app).listen(port, () => {
+//   console.log('Server listening on port', port);
+// });
+// 

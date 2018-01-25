@@ -1,0 +1,14 @@
+box: node
+
+build:
+    steps:
+        - npm-install
+
+init:
+    steps:
+        - npm run generate-proxy
+        - npm run deploy
+
+deploy:
+    steps:
+        - npm run update
