@@ -6,8 +6,8 @@ build:
 
 init:
     steps:
-        - npm run generate-proxy
-        - npm run deploy
+        - claudia generate-serverless-express-proxy --express-module index
+        - claudia create --handler lambda.handler --deploy-proxy-api --region $AWS_REGION
 
 deploy:
     steps:
