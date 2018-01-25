@@ -13,13 +13,6 @@ const runner = require('./runner');
 const port = process.env.PORT || 8080;
 const router = express.Router();
 
-router.get('/static/*', function(req, res) {
-  let target = path.resolve(path.join('.', req.path));
-  res.sendFile(target, {}, (err) => {
-    if (err) return res.status(404).end();
-  });
-});
-
 router.get('/*.css', function(req, res) {
   if (!req.query.p) return res.status(404).end();
 
@@ -27,6 +20,13 @@ router.get('/*.css', function(req, res) {
     path.join(config.directory.build, req.query.p, 'build', req.path)
   );
   res.sendFile(cssFilePath, {}, (err) => {
+    if (err) return res.status(404).end();
+  });
+});
+
+router.get('/**/**.*', function(req, res) {
+  let target = path.resolve(path.join('./static', req.path));
+  res.sendFile(target, {}, (err) => {
     if (err) return res.status(404).end();
   });
 });
