@@ -15,7 +15,7 @@ deploy:
                 zip -r sassy-front-end.zip .
         - arjen/lambda:
             access_key: $AWS_LAMBDA_ACCESS_KEY
-            secret_key: $AWS_LAMBDA_SECRET_KEY
+            secret_key: $AWS_LAMBDA_SECRET_ACCESS_KEY
             function_name: sassy-front-end
             region: $AWS_REGION
             filepath: $WERCKER_SOURCE_DIR/sassy-front-end.zip
