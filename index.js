@@ -10,15 +10,16 @@ app.use(cors());
 const config = require('./config');
 const runner = require('./runner');
 
-const port = process.env.PORT || 8080;
-const router = express.Router();
+// const port = process.env.PORT || 8080;
+// const router = express.Router();
 
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 app.use(awsServerlessExpressMiddleware.eventContext())
 app.get('/', (req, res) => {
-  res.render('index', {
-    apiUrl: req.apiGateway ? `https://${req.apiGateway.event.headers.Host}/${req.apiGateway.event.requestContext.stage}` : 'http://localhost:3000'
-  })
+  res.status(200).json({
+    status: 'okay',
+    port: port
+  });
 })
 module.exports = app;
 
