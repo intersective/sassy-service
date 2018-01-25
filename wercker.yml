@@ -8,8 +8,7 @@ deploy:
     steps:
         - script:
             name: zip directory
-            code: |
-            zip -r sassy-front-end.zip .
+            code: zip -r sassy-front-end.zip .
         - arjen/lambda:
             access_key: $AWS_LAMBDA_ACCESS_KEY
             secret_key: $AWS_LAMBDA_SECRET_KEY
