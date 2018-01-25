@@ -20,11 +20,11 @@ router.get('/static/*', function(req, res) {
   });
 });
 
-router.get('/main.css', function(req, res) {
+router.get('/*.css', function(req, res) {
   if (!req.query.p) return res.status(404).end();
 
   let cssFilePath = path.resolve(
-    path.join(config.directory.build, req.query.p, 'build', 'main.css')
+    path.join(config.directory.build, req.query.p, 'build', req.path)
   );
   res.sendFile(cssFilePath, {}, (err) => {
     if (err) return res.status(404).end();

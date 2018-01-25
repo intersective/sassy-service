@@ -98,9 +98,9 @@ const build = (programs, done) => {
 			},
 
 			(callback) => {
-				compile(path.join(paths.programDirTmp, 'main.scss'), paths.programDirBuild, {}, callback);
+				compile(path.join(paths.programDirTmp, program.rootFile), paths.programDirBuild, {}, callback);
 			}
-			
+
 		], (err) => {
 			nextProgam(err);
 		});
