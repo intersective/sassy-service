@@ -6,9 +6,15 @@ build:
 
 init:
     steps:
-        - npm run generate-proxy
-        - npm run deploy
+        - script:
+            name: initialisation
+            code: |
+                npm run generate-proxy
+                npm run deploy
 
 deploy:
     steps:
-        - npm run update
+        - script:
+            name: update 
+            code: |
+                npm run update
