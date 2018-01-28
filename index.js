@@ -13,8 +13,12 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(awsServerlessExpressMiddleware.eventContext())
 
+// app.get('/', (req, res) => {
+//   res.json(req.apiGateway.event)
+// })
+
 app.get('/', (req, res) => {
-  res.json(req.apiGateway.event)
+  res.sendFile(`${__dirname}/sam-logo.png`)
 })
 
 // The aws-serverless-express library creates a server and listens on a Unix
