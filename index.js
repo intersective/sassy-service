@@ -19,6 +19,12 @@ app.get('/', (req, res) => {
   });
 })
 
+app.get('/ok', (req, res) => {
+  res.status(200).json({
+    status: 'okay'
+  });
+})
+
 // The aws-serverless-express library creates a server and listens on a Unix
 // Domain Socket for you, so you can remove the usual call to app.listen.
 // app.listen(3000)
