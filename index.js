@@ -14,9 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(awsServerlessExpressMiddleware.eventContext())
 
 app.get('/', (req, res) => {
-  res.render('index', {
-    apiUrl: req.apiGateway ? `https://${req.apiGateway.event.headers.Host}/${req.apiGateway.event.requestContext.stage}` : 'http://localhost:3000'
-  })
+  res.json(req.apiGateway.event)
 })
 
 // The aws-serverless-express library creates a server and listens on a Unix
