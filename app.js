@@ -25,7 +25,7 @@ app.get('/sassy-front-end', (req, res) => {
 		}
 
 		// use css from program id
-		if (query.hasOwnProperty("p") {
+		if (query.hasOwnProperty("p")) {
 			var programId = query.p;
 			filePath = `${__dirname}/static/programs/${programId}/practera.css`;
 		}
