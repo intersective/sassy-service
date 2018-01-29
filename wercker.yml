@@ -9,7 +9,7 @@ deploy:
         -script:
             name: script
             code: |
-                npm run config -- --account-id="$AWS_LAMBDA_ACCOUNT_ID" --region="$AWS_REGION" --function-name="sassy-front-end"
+                npm run config -- --account-id="$AWS_LAMBDA_ACCOUNT_ID" --region="$AWS_REGION" --function-name="sassy-front-end" |
                 npm run setup
         - script:
             name: zip directory
