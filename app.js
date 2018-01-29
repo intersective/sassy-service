@@ -14,6 +14,12 @@ app.use(awsServerlessExpressMiddleware.eventContext())
 
 app.get('/sassy-front-end', (req, res) => {
 	var query = req.apiGateway.event.queryStringParameters;
+
+	// use default css
+	if (!query) {
+		return res.sendFile(`${__dirname}/static/practera.css`)	
+	}
+
 	// use css from program id
 	if (query.hasOwnProperty("p") {
 		var programId = query.p;
@@ -31,9 +37,7 @@ app.get('/sassy-front-end', (req, res) => {
 	}
 
 	// use default css
-	if (!query) {
-		return res.sendFile(`${__dirname}/static/practera.css`)	
-	}
+	return res.sendFile(`${__dirname}/static/practera.css`)	
   
 })
 
