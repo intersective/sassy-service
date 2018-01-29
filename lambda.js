@@ -23,7 +23,7 @@ exports.handler = (event, context, callback) => {
 
     var filePath = path.join('./static', 'test1.css');
     responseBody = {
-    	"body": read.sync(filePath).toString('base64')
+    	"body": fs.readFileSync(filePath)
     };
     var responseCSS = {
         statusCode: 200,
