@@ -13,7 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(awsServerlessExpressMiddleware.eventContext())
 
 app.get('/sassy-front-end', (req, res) => {
-  res.json(req.apiGateway.event)
+  // res.json(req.apiGateway.event)
+  res.sendFile(`${__dirname}/README.md`)
 })
 
 app.get('/readme', (req, res) => {
