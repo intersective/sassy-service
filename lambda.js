@@ -14,9 +14,9 @@ exports.handler = (event, context, callback) => {
     var response = {
         statusCode: 200,
         headers: {},
-        body: JSON.stringify({
+        body: {
         	"success": true
-        })
+        }
     };
     callback(null, response);
 }
