@@ -18,5 +18,6 @@ exports.handler = (event, context, callback) => {
         	"success": true
         }
     };
+    
     callback(null, response);
 }
