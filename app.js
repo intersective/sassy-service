@@ -14,16 +14,16 @@ app.use(awsServerlessExpressMiddleware.eventContext())
 
 app.get('/sassy-front-end', (req, res) => {
 	// use css from program id
-	if (req.apiGateway.event.queryStringParameters.p) {
-		var programId = req.apiGateway.event.queryStringParameters.hasOwnProperty("p");
+	if (req.apiGateway.event.queryStringParameters.hasOwnProperty("p") {
+		var programId = req.apiGateway.event.queryStringParameters.p;
 		return res.sendFile(`${__dirname}/static/programs/${programId}/practera.css`, {}, (err) => {
 	    if (err) return res.status(404).end();
 	  });
 	}
 
 	// use css from experience id
-	if (req.apiGateway.event.queryStringParameters.e) {
-		var experienceId = req.apiGateway.event.queryStringParameters.hasOwnProperty("e");
+	if (req.apiGateway.event.queryStringParameters.hasOwnProperty("e")) {
+		var experienceId = req.apiGateway.event.queryStringParameters.e;
 		return res.sendFile(`${__dirname}/static/experiences/${experienceId}/practera.css`, {}, (err) => {
 	    if (err) return res.status(404).end();
 	  });
