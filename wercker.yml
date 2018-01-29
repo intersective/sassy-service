@@ -6,19 +6,6 @@ build:
 
 deploy:
     steps:
-<<<<<<< HEAD
-        -script:
-            name: script
-            code: |
-                npm run config -- --account-id="$AWS_LAMBDA_ACCOUNT_ID" --region="$AWS_REGION" --function-name="sassy-front-end" | npm run setup
-||||||| f0d6c30... test
-        -script:
-            name: script
-            code: |
-                npm run config -- --account-id="$AWS_LAMBDA_ACCOUNT_ID" --region="$AWS_REGION" --function-name="sassy-front-end"
-                npm run setup
-=======
->>>>>>> parent of f0d6c30... test
         - script:
             name: zip directory
             code: |
