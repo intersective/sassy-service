@@ -1,6 +1,7 @@
 'use strict'
 
 const fs = require('fs')
+var read = require('read-file')
 
 exports.handler = (event, context, callback) => {
 	
@@ -19,7 +20,7 @@ exports.handler = (event, context, callback) => {
         headers: {
         	"Content-type": "text/css"
         },
-        body: fs.createReadStream(filePath)
+        body: read.sync(filePath).toString()
     };
     callback(null, response);
 }
