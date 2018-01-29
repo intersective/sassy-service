@@ -12,7 +12,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(awsServerlessExpressMiddleware.eventContext())
 
-app.get('/', (req, res) => {
+app.get('/sassy-front-end', (req, res) => {
   res.json(req.apiGateway.event)
 })
 
