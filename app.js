@@ -13,16 +13,10 @@ app.use(cors())
 app.use(awsServerlessExpressMiddleware.eventContext())
 
 app.get('/sassy-front-end', (req, res) => {
-  res.sendFile(`${__dirname}/test.css`)
-})
-
-app.get('/sassy-front-end/event', (req, res) => {
   res.json(req.apiGateway.event)
+  // res.sendFile(`${__dirname}/test.css`)
 })
 
-app.get('/sassy-front-end/practera.css', (req, res) => {
-  res.sendFile(`${__dirname}/test.css`)
-})
 
 // The aws-serverless-express library creates a server and listens on a Unix
 // Domain Socket for you, so you can remove the usual call to app.listen.
