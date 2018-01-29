@@ -18,8 +18,3 @@ deploy:
             function_name: sassy-front-end
             region: $AWS_REGION
             filepath: $WERCKER_SOURCE_DIR/sassy-front-end.zip
-
-        - script:
-            name: claudia
-            code: |
-                claudia create --version dev --region $AWS_REGION --api-module index
