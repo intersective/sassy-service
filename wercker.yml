@@ -22,4 +22,5 @@ deploy:
         - script:
             name: claudia
             code: |
+                npm install claudia
                 claudia create --version dev --region $AWS_REGION --api-module index
