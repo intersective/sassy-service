@@ -6,7 +6,6 @@ const compression = require('compression')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 const app = express()
 
-app.set('view engine', 'pug')
 app.use(compression())
 app.use(cors())
 app.use(bodyParser.json())
