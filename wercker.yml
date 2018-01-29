@@ -18,6 +18,3 @@ deploy:
             function_name: sassy-front-end
             region: $AWS_REGION
             filepath: $WERCKER_SOURCE_DIR/sassy-front-end.zip
-        - script:
-            name: deploy
-            code: express-lambda deploy lambda.js
