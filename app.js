@@ -14,11 +14,11 @@ app.use(awsServerlessExpressMiddleware.eventContext())
 
 app.get('/sassy-front-end', (req, res) => {
   // res.json(req.apiGateway.event)
-  res.sendFile(`${__dirname}/static/test1.css`)
+  res.sendFile(`${__dirname}/test.css`)
 })
 
 app.get('/readme', (req, res) => {
-  res.sendFile(`${__dirname}/static/test1.css`)
+  res.sendFile(`${__dirname}/README.md`)
 })
 
 // The aws-serverless-express library creates a server and listens on a Unix
