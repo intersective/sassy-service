@@ -1,8 +1,7 @@
 'use strict'
-const awsServerlessExpress = require('aws-serverless-express')
-const app = require('./index')
-const server = awsServerlessExpress.createServer(app)
-// exports.handler = (event, context) => awsServerlessExpress.proxy(server, event, context)
+
+const fs = require('fs')
+
 exports.handler = (event, context, callback) => {
 	
     // The output from a Lambda proxy integration must be 
@@ -14,10 +13,13 @@ exports.handler = (event, context, callback) => {
     var responseBody = {
     	"success": true
     };
+    var filePath = path.join('./static', 'test1.css');
     var response = {
         statusCode: 200,
-        headers: {},
-        body: JSON.stringify(responseBody)
+        headers: {
+        	"Content-type": "text/css"
+        },
+        body: fileSystem.createReadStream(filePath)
     };
     callback(null, response);
 }
