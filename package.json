@@ -31,5 +31,8 @@
     "gulp-sass-vars": "^1.3.0",
     "lodash": "^4.17.4",
     "run-sequence": "^2.2.1"
+  },
+  "devDependencies": {
+    "claudia": "^3.3.0"
   }
 }
