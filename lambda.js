@@ -20,7 +20,8 @@ exports.handler = (event, context, callback) => {
         headers: {
         	"Content-type": "text/css"
         },
-        body: read.sync(filePath).toString()
+        body: read.sync(filePath).toString('base64'),
+        isBase64Encoded : true
     };
     callback(null, response);
 }
