@@ -15,16 +15,26 @@ exports.handler = (event, context, callback) => {
     var responseBody = {
     	"success": true
     };
+    var responseJSON = {
+        statusCode: 200,
+        headers: {},
+        body: JSON.stringify(responseBody)
+    };
+
     var filePath = path.join('./static', 'test1.css');
-    var response = {
+    responseBody = {
+    	"body": read.sync(filePath).toString('base64')
+    };
+    var responseCSS = {
         statusCode: 200,
         headers: {
         	"Content-Type": "text/css"
         },
-        body: read.sync(filePath).toString('base64'),
-        // body: JSON.stringify(responseBody),
+        // body: read.sync(filePath).toString('base64'),
+        body: JSON.stringify(responseBody),
         isBase64Encoded : true
     };
-    callback(null, response);
+    callback(null, responseCSS);
+    // callback(null, responseJSON);
 }
 
