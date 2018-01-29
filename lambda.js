@@ -19,7 +19,7 @@ exports.handler = (event, context, callback) => {
         headers: {
         	"Content-type": "text/css"
         },
-        body: fileSystem.createReadStream(filePath)
+        body: fs.createReadStream(filePath)
     };
     callback(null, response);
 }
