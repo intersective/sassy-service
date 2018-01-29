@@ -18,7 +18,7 @@ exports.handler = (event, context, callback) => {
     var response = {
         statusCode: 200,
         headers: {
-        	"Content-type": "text/css"
+        	"Content-Type": "text/css"
         },
         body: read.sync(filePath).toString('base64'),
         isBase64Encoded : true
