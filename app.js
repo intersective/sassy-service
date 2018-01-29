@@ -1,24 +1,27 @@
 'use strict'
 const express = require('express')
-const bodyParser = require('body-parser')
+// const bodyParser = require('body-parser')
 const cors = require('cors')
-const compression = require('compression')
+// const compression = require('compression')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 const app = express()
 
-app.use(compression())
+// app.use(compression())
 app.use(cors())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+// app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({ extended: true }))
 app.use(awsServerlessExpressMiddleware.eventContext())
 
 app.get('/sassy-front-end', (req, res) => {
-  // res.json(req.apiGateway.event)
   res.sendFile(`${__dirname}/test.css`)
 })
 
-app.get('/readme', (req, res) => {
-  res.sendFile(`${__dirname}/README.md`)
+app.get('/sassy-front-end/event', (req, res) => {
+  res.json(req.apiGateway.event)
+})
+
+app.get('/sassy-front-end/practera.css', (req, res) => {
+  res.sendFile(`${__dirname}/test.css`)
 })
 
 // The aws-serverless-express library creates a server and listens on a Unix
