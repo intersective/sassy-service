@@ -11,10 +11,10 @@ deploy:
             code: |
                 sudo apt-get update
                 sudo apt-get install -y zip
-                zip -r sassy-front-end.zip .
+                zip -r index.zip .
         - arjen/lambda:
             access_key: $AWS_LAMBDA_ACCESS_KEY
             secret_key: $AWS_LAMBDA_SECRET_ACCESS_KEY
             function_name: sassy-front-end
             region: $AWS_REGION
-            filepath: $WERCKER_SOURCE_DIR/sassy-front-end.zip
+            filepath: $WERCKER_SOURCE_DIR/index.zip
