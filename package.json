@@ -3,10 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "lambda.js",
+  "config": {
+    "region": "YOUR_AWS_REGION",
+    "cloudFormationStackName": "AwsServerlessExpressStack",
+    "functionName": "YOUR_SERVERLESS_EXPRESS_LAMBDA_FUNCTION_NAME",
+    "accountId": "YOUR_ACCOUNT_ID"
+  },
   "scripts": {
-    "start": "node index.js",
-    "local": "NODE_ENV=local node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.local.js",
+    "config": "node ./scripts/configure.js",
+    "deconfig": "node ./scripts/deconfigure.js",
+    "local": "node scripts/local",
+    "invoke-lambda": "aws lambda invoke --function-name $npm_package_config_functionName --region $npm_package_config_region --payload file://api-gateway-event.json lambda-invoke-response.json && cat lambda-invoke-response.json",
+    "package": "aws cloudformation package --template ./cloudformation.yaml --output-template packaged-sam.yaml --region $npm_package_config_region",
+    "deploy": "aws cloudformation deploy --template-file packaged-sam.yaml --stack-name $npm_package_config_cloudFormationStackName --capabilities CAPABILITY_IAM --region $npm_package_config_region",
+    "package-deploy": "npm run package && npm run deploy",
+    "setup": "npm install && npm run package-deploy"
   },
   "repository": {
     "type": "git",
