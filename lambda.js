@@ -1,7 +1,8 @@
 'use strict'
 
 const fs = require('fs')
-var read = require('read-file')
+const read = require('read-file')
+const path = require('path');
 
 exports.handler = (event, context, callback) => {
 	
@@ -18,7 +19,7 @@ exports.handler = (event, context, callback) => {
     var response = {
         statusCode: 200,
         headers: {
-        	// "Content-Type": "text/css"
+        	"Content-Type": "text/css"
         },
         // body: read.sync(filePath).toString('base64'),
         body: JSON.stringify(responseBody),
