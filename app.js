@@ -1,33 +1,33 @@
 'use strict'
 const express = require('express')
 // const bodyParser = require('body-parser')
-const cors = require('cors')
 // const compression = require('compression')
+const cors = require('cors')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 const app = express()
 
-// app.use(compression())
 app.use(cors())
+// app.use(compression())
 // app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded({ extended: true }))
 app.use(awsServerlessExpressMiddleware.eventContext())
 
 app.get('/sassy-front-end', (req, res) => {
 	// use css from program id
-	if (req.apiGateway.event.queryStringParameters.hasOwnProperty("p") {
-		var programId = req.apiGateway.event.queryStringParameters.p;
-		return res.sendFile(`${__dirname}/static/programs/${programId}/practera.css`, {}, (err) => {
-	    if (err) return res.status(404).end();
-	  });
-	}
+	// if (req.apiGateway.event.queryStringParameters.hasOwnProperty("p") {
+	// 	var programId = req.apiGateway.event.queryStringParameters.p;
+	// 	return res.sendFile(`${__dirname}/static/programs/${programId}/practera.css`, {}, (err) => {
+	//     if (err) return res.status(404).end();
+	//   });
+	// }
 
-	// use css from experience id
-	if (req.apiGateway.event.queryStringParameters.hasOwnProperty("e")) {
-		var experienceId = req.apiGateway.event.queryStringParameters.e;
-		return res.sendFile(`${__dirname}/static/experiences/${experienceId}/practera.css`, {}, (err) => {
-	    if (err) return res.status(404).end();
-	  });
-	}
+	// // use css from experience id
+	// if (req.apiGateway.event.queryStringParameters.hasOwnProperty("e")) {
+	// 	var experienceId = req.apiGateway.event.queryStringParameters.e;
+	// 	return res.sendFile(`${__dirname}/static/experiences/${experienceId}/practera.css`, {}, (err) => {
+	//     if (err) return res.status(404).end();
+	//   });
+	// }
 
 	// use default css
 	if (!req.apiGateway.event.queryStringParameters) {
