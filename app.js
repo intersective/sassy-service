@@ -14,30 +14,26 @@ app.use(awsServerlessExpressMiddleware.eventContext())
 
 app.get('/sassy-front-end', (req, res) => {
 	var query = req.apiGateway.event.queryStringParameters;
+	// default css
+	var filePath = `${__dirname}/static/practera.css`;
 
-	// use default css
-	if (!query) {
-		return res.sendFile(`${__dirname}/static/practera.css`)	
+	if (query) {
+		// use css from experience id
+		if (query.hasOwnProperty("e")) {
+			var experienceId = query.e;
+			filePath = `${__dirname}/static/experiences/${experienceId}/practera.css`;
+		}
+
+		// use css from program id
+		if (query.hasOwnProperty("p") {
+			var programId = query.p;
+			filePath = `${__dirname}/static/programs/${programId}/practera.css`;
+		}
 	}
 
-	// use css from program id
-	if (query.hasOwnProperty("p") {
-		var programId = query.p;
-		return res.sendFile(`${__dirname}/static/programs/${programId}/practera.css`, {}, (err) => {
-	    if (err) return res.status(404).end();
-	  });
-	}
-
-	// use css from experience id
-	if (query.hasOwnProperty("e")) {
-		var experienceId = query.e;
-		return res.sendFile(`${__dirname}/static/experiences/${experienceId}/practera.css`, {}, (err) => {
-	    if (err) return res.status(404).end();
-	  });
-	}
-
-	// use default css
-	return res.sendFile(`${__dirname}/static/practera.css`)	
+	res.sendFile(filePath, {}, (err) => {
+    if (err) return res.status(404).end();
+  });
   
 })
 
