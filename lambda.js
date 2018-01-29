@@ -1,7 +1,6 @@
 'use strict'
 
 const fs = require('fs')
-const read = require('read-file')
 const path = require('path');
 
 exports.handler = (event, context, callback) => {
@@ -30,7 +29,7 @@ exports.handler = (event, context, callback) => {
         headers: {
         	"Content-Type": "text/css"
         },
-        // body: read.sync(filePath).toString('base64'),
+        // body: fs.readFileSync(filePath).toString('base64'),
         body: JSON.stringify(responseBody),
         isBase64Encoded : true
     };
