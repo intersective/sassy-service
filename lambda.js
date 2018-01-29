@@ -11,13 +11,12 @@ exports.handler = (event, context, callback) => {
     // ones. The 'body' property  must be a JSON string. For 
     // base64-encoded payload, you must also set the 'isBase64Encoded'
     // property to 'true'.
-    var responseBody = {
-    	"success": true
-    };
     var response = {
         statusCode: 200,
         headers: {},
-        body: JSON.stringify(responseBody)
+        body: JSON.stringify({
+        	"success": true
+        })
     };
     callback(null, response);
 }
