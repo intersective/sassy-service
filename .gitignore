@@ -58,8 +58,9 @@ typings/
 .env
 
 # empty folders
+static/*
 # use static css files for now
-# static/*
+!static/css
 !static/.empty
 
 source/*

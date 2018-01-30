@@ -4,8 +4,8 @@
   "description": "",
   "main": "lambda.js",
   "scripts": {
-    "start": "node index.js",
-    "local": "NODE_ENV=local node index.js",
+    "start": "node app.local.js",
+    "local": "NODE_ENV=local node app.local.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
