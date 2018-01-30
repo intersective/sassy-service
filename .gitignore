@@ -61,6 +61,7 @@ typings/
 static/*
 # use static css files for now
 !static/css
+static/css/.DS_Store
 !static/.empty
 
 source/*
