@@ -13,7 +13,7 @@ app.get('/sassy-front-end', (req, res) => {
 	var query = req.apiGateway.event.queryStringParameters;
 	// default css
 	var filePath = path.resolve(
-    path.join(config.directory.css, 'practera.css')
+    path.join(config.directory.live, 'default', 'practera.css')
   );
 
 	if (query) {
@@ -21,7 +21,7 @@ app.get('/sassy-front-end', (req, res) => {
 		if (query.hasOwnProperty("e")) {
 			var experienceId = query.e;
 			filePath = path.resolve(
-		    path.join(config.directory.css, 'experiences', experienceId, 'practera.css')
+		    path.join(config.directory.live, 'experiences', experienceId, 'practera.css')
 		  );
 		}
 
@@ -29,7 +29,7 @@ app.get('/sassy-front-end', (req, res) => {
 		if (query.hasOwnProperty("p")) {
 			var programId = query.p;
 			filePath = path.resolve(
-		    path.join(config.directory.css, 'programs', programId, 'practera.css')
+		    path.join(config.directory.live, 'programs', programId, 'practera.css')
 		  );
 		}
 	}

@@ -3,6 +3,7 @@ module.exports = {
     source: './source',
     build: './build',
     static: './static',
-    css: './static/css'
+    // live: './static/css'
+    live: 'https://s3-ap-southeast-2.amazonaws.com/css.practera.com'
   }
 }
