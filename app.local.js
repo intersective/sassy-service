@@ -10,7 +10,7 @@ app.use(cors());
 const config = require('./config');
 const runner = require('./runner');
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8888;
 const router = express.Router();
 
 router.get('/*.css', function(req, res) {
@@ -35,6 +35,42 @@ router.get('/', function(req, res) {
   res.status(200).json({
     status: 'okay',
     port: port
+  });
+});
+
+router.get('/compile', function(req, res) {
+  let programs = [
+    {
+      id: 260,
+      name: 'Generic app V1',
+      styleVersion: 'app-v1',
+      rootFile: 'practera.scss',
+      files: [
+        {
+          target: 'custom-variables.scss',
+          vars: {
+            'version': '260',
+            // 'primary': '#2bbfd4',
+            'primary': '#e81c4f',
+            'secondary': '#f5f6fa'
+          }
+        }
+      ]
+    },
+    {
+      id: 'default',
+      name: 'July 2017',
+      styleVersion: 'v1',
+      rootFile: 'practera.scss',
+      files: []
+    }
+  ]
+
+  runner.build(programs, () => {
+    res.status(200).json({
+      status: 'okay',
+      port: port
+    });
   });
 });
 

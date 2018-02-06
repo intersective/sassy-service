@@ -9,7 +9,7 @@ const app = express()
 app.use(cors())
 app.use(awsServerlessExpressMiddleware.eventContext())
 
-app.get('/sassy-front-end', (req, res) => {
+app.post('/sassy-back-end', (req, res) => {
 	var query = req.apiGateway.event.queryStringParameters;
 	// default css
 	var filePath = path.resolve(
