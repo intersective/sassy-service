@@ -6,10 +6,10 @@ build:
 
 deploy:
     steps:
-    - script:
-        name: deployment start
-        code: |
-            curl -X POST -H 'Content-type: application/json' --data '{"attachments":[{"color":"#439FE0","text":"Deployment of $TEST_VAR starts..."}]}' https://hooks.slack.com/services/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
+        - script:
+            name: deployment start
+            code: |
+                curl -X POST -H 'Content-type: application/json' --data '{"attachments":[{"color":"#439FE0","text":"Deployment of $TEST_VAR starts..."}]}' https://hooks.slack.com/services/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
         - script:
             name: zip directory
             code: |
