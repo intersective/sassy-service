@@ -9,16 +9,16 @@ deploy:
         - script:
             name: deployment start
             code: |
-                curl -X POST -H 'Content-type: application/json' --data '{"attachments":[{"color":"#439FE0","text":"Deployment of $TEST_VAR starts..."}]}' https://hooks.slack.com/services/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
-        - script:
-            name: zip directory
-            code: |
-                sudo apt-get update
-                sudo apt-get install -y zip
-                zip -r sassy-front-end.zip .
-        - arjen/lambda:
-            access_key: $AWS_LAMBDA_ACCESS_KEY
-            secret_key: $AWS_LAMBDA_SECRET_ACCESS_KEY
-            function_name: sassy-front-end
-            region: $AWS_REGION
-            filepath: $WERCKER_SOURCE_DIR/sassy-front-end.zip
+                curl -X POST -H 'Content-type: application/json' --data '{"attachments":[{"color":"#439FE0","text":"Deployment of \$TEST_VAR starts..."}]}' https://hooks.slack.com/services/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
+        # - script:
+        #     name: zip directory
+        #     code: |
+        #         sudo apt-get update
+        #         sudo apt-get install -y zip
+        #         zip -r sassy-front-end.zip .
+        # - arjen/lambda:
+        #     access_key: $AWS_LAMBDA_ACCESS_KEY
+        #     secret_key: $AWS_LAMBDA_SECRET_ACCESS_KEY
+        #     function_name: sassy-front-end
+        #     region: $AWS_REGION
+        #     filepath: $WERCKER_SOURCE_DIR/sassy-front-end.zip
